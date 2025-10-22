@@ -1,0 +1,11 @@
+:root { -fx-font-size: 14px; }
+
+.label.title { -fx-font-size: 24px; -fx-font-weight: bold; }
+.label.subtitle { -fx-font-size: 16px; -fx-text-fill: white; }
+
+.toolbar { -fx-padding: 12; -fx-background-color: linear-gradient(to right, #0ea5e9, #22c55e); -fx-spacing: 16; }
+.toolbar .label { -fx-text-fill: white; }
+
+.button { -fx-background-radius: 8; -fx-padding: 8 16 8 16; }
+.button.primary { -fx-background-color: #0ea5e9; -fx-text-fill: white; }
+.text-field, .password-field, .choice-box { -fx-background-radius: 6; }

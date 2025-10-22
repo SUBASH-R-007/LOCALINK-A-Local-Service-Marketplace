@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.localink.controller.LoginController">
+    <center>
+        <VBox spacing="16.0" alignment="CENTER" maxWidth="360.0">
+            <Label text="Localink" styleClass="title" />
+            <TextField fx:id="emailField" promptText="Email" />
+            <PasswordField fx:id="passwordField" promptText="Password" />
+            <Button text="Login" onAction="#onLogin" maxWidth="Infinity" />
+            <Label fx:id="errorLabel" textFill="red" />
+            <HBox alignment="CENTER">
+                <Label text="No account?" />
+                <Hyperlink text="Register" onAction="#onGoToRegister" />
+            </HBox>
+        </VBox>
+    </center>
+    <padding>
+        <Insets top="40" right="24" bottom="40" left="24" />
+    </padding>
+</BorderPane>

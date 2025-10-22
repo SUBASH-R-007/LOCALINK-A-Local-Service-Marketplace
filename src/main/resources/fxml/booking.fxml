@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.localink.controller.BookingController">
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="toolbar">
+            <Label text="Localink" styleClass="title" />
+            <Label text="Booking" styleClass="subtitle" />
+            <Button text="Back" onAction="#onBack" />
+        </HBox>
+    </top>
+    <center>
+        <GridPane hgap="12" vgap="12">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="140" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            <Label text="Service" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <Label fx:id="serviceTitle" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+            <Label text="Provider" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <Label fx:id="serviceProvider" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+            <Label text="Rate" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+            <Label fx:id="serviceRate" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+            <Label text="Date" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+            <DatePicker fx:id="datePicker" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+            <Label text="Time" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+            <HBox spacing="8" GridPane.rowIndex="4" GridPane.columnIndex="1">
+                <ComboBox fx:id="hourCombo" prefWidth="100" />
+                <ComboBox fx:id="minuteCombo" prefWidth="100" />
+            </HBox>
+
+            <Label text="Notes" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+            <TextArea fx:id="notesField" GridPane.rowIndex="5" GridPane.columnIndex="1" prefRowCount="4" />
+            <padding>
+                <Insets top="12" right="12" bottom="12" left="12" />
+            </padding>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox spacing="12" alignment="CENTER_RIGHT">
+            <Label fx:id="errorLabel" style="-fx-text-fill: red;" HBox.hgrow="ALWAYS" />
+            <Button text="Confirm Booking" onAction="#onConfirm" styleClass="primary" />
+            <padding>
+                <Insets top="12" right="12" bottom="12" left="12" />
+            </padding>
+        </HBox>
+    </bottom>
+</BorderPane>

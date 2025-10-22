@@ -1,0 +1,22 @@
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse/IntelliJ/VSCode
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Credentials (do not commit)
+*.env
