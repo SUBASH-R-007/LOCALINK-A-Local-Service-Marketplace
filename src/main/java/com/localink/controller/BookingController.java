@@ -66,13 +66,8 @@ public class BookingController {
         }
         LocalTime t = LocalTime.of(h, m);
         ZonedDateTime when = ZonedDateTime.of(d, t, ZoneId.systemDefault());
-        try {
-            long bookingId = new BookingDao().create(Session.getCurrentUserId(), svc.getId(), when);
-            Session.setLastBookingId(bookingId);
-            Session.setLastScheduledAt(when);
-            ViewNavigator.navigate("/fxml/confirmation.fxml", "Localink - Confirmation");
-        } catch (SQLException ex) {
-            errorLabel.setText("Booking failed");
-        }
+        Session.setLastScheduledAt(when);
+        ViewNavigator.navigate("/fxml/payment.fxml", "Localink - Payment");
     }
 }
+

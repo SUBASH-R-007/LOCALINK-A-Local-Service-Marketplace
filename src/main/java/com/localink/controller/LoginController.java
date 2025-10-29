@@ -31,8 +31,16 @@ public class LoginController {
                 return;
             }
             Session.setCurrentUserId(user.getId());
-            // Navigate by role if needed; for now, go to Categories flow
-            ViewNavigator.navigate("/fxml/categories.fxml", "Localink - Browse Categories");
+            Session.setCurrentUserRole(user.getRole());
+            Session.setCurrentUserName(user.getName());
+            String role = user.getRole();
+            if ("PROVIDER".equalsIgnoreCase(role)) {
+                ViewNavigator.navigate("/fxml/provider_dashboard.fxml", "Localink - Provider Dashboard");
+            } else if ("ADMIN".equalsIgnoreCase(role)) {
+                ViewNavigator.navigate("/fxml/admin_dashboard.fxml", "Localink - Admin Dashboard");
+            } else {
+                ViewNavigator.navigate("/fxml/categories.fxml", "Localink - Browse Categories");
+            }
         } catch (IllegalArgumentException ex) {
             errorLabel.setText(ex.getMessage());
         } catch (Exception ex) {
@@ -45,3 +53,4 @@ public class LoginController {
         ViewNavigator.navigate("/fxml/register.fxml", "Localink - Register");
     }
 }
+

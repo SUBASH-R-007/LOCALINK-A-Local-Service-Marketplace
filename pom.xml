@@ -18,6 +18,7 @@
         <logback.version>1.4.14</logback.version>
         <hikari.version>5.1.0</hikari.version>
         <postgres.version>42.7.4</postgres.version>
+        <pdfbox.version>2.0.30</pdfbox.version>
     </properties>
 
     <dependencies>
@@ -63,6 +64,13 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
         </dependency>
+
+        <!-- PDF generation -->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>${pdfbox.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -92,3 +100,4 @@
         </plugins>
     </build>
 </project>
+

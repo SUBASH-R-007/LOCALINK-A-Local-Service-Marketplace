@@ -23,6 +23,7 @@
     </center>
     <bottom>
         <HBox spacing="12" alignment="CENTER_RIGHT">
+            <Button text="Save Receipt as PDF" onAction="#onSaveReceipt" />
             <Button text="Go to Categories" onAction="#onGoHome" />
             <padding>
                 <Insets top="12" right="12" bottom="12" left="12" />
@@ -30,3 +31,4 @@
         </HBox>
     </bottom>
 </BorderPane>
+

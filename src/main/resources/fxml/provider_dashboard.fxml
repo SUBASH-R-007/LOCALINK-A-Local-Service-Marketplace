@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.localink.controller.ProviderDashboardController">
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="toolbar">
+            <Label text="Localink" styleClass="title" />
+            <Label text="Provider Dashboard" styleClass="subtitle" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Logout" onAction="#onLogout" />
+        </HBox>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.33">
+            <items>
+                <VBox spacing="8">
+                    <Label text="My Services" styleClass="title" />
+                    <ListView fx:id="servicesList" />
+                    <HBox spacing="8">
+                        <Button text="Add" onAction="#onAddService" />
+                        <Button text="Edit" onAction="#onEditService" />
+                        <Button text="Toggle Active" onAction="#onToggleActive" />
+                    </HBox>
+                    <padding>
+                        <Insets top="12" right="12" bottom="12" left="12" />
+                    </padding>
+                </VBox>
+                <VBox spacing="8">
+                    <Label text="Incoming Bookings" styleClass="title" />
+                    <TableView fx:id="bookingsTable">
+                        <columns>
+                            <TableColumn text="ID" fx:id="colId" />
+                            <TableColumn text="Customer" fx:id="colCustomer" />
+                            <TableColumn text="When" fx:id="colWhen" />
+                            <TableColumn text="Status" fx:id="colStatus" />
+                        </columns>
+                    </TableView>
+                    <HBox spacing="8">
+                        <Button text="Accept" onAction="#onAccept" />
+                        <Button text="Reject" onAction="#onReject" />
+                        <Button text="Mark Completed" onAction="#onComplete" />
+                    </HBox>
+                    <padding>
+                        <Insets top="12" right="12" bottom="12" left="12" />
+                    </padding>
+                </VBox>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>
+

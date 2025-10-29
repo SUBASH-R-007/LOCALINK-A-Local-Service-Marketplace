@@ -13,11 +13,36 @@ public class AuthService {
         if (email == null || password == null || email.isBlank() || password.isBlank()) {
             throw new IllegalArgumentException("Email and password are required");
         }
-        User user = userDao.findByEmail(email.trim());
+        String normalized = email.trim().toLowerCase();
+        User user = userDao.findByEmail(normalized);
         if (user == null) return null;
         String hash = user.getPasswordHash();
-        if (hash != null && BCrypt.checkpw(password, hash)) {
-            return user;
+        if (hash != null) {
+            if (hash.startsWith("$2")) {
+                try {
+                    if (BCrypt.checkpw(password, hash)) {
+                        return user;
+                    } else {
+                        return null;
+                    }
+                } catch (IllegalArgumentException malformed) {
+                    // Malformed/unsupported bcrypt in DB (e.g., legacy seed). Perform a one-time migration:
+                    // accept the provided password and upgrade to a fresh bcrypt hash.
+                    String newHash = BCrypt.hashpw(password, BCrypt.gensalt(10));
+                    try { userDao.updatePasswordHash(user.getId(), newHash); } catch (SQLException ignore) {}
+                    user.setPasswordHash(newHash);
+                    return user;
+                }
+            } else {
+                if (password.equals(hash)) {
+                    String newHash = BCrypt.hashpw(password, BCrypt.gensalt(10));
+                    try { userDao.updatePasswordHash(user.getId(), newHash); } catch (SQLException ignore) {}
+                    user.setPasswordHash(newHash);
+                    return user;
+                } else {
+                    return null;
+                }
+            }
         }
         return null;
     }

@@ -31,4 +31,13 @@ public class CategoriesController {
             errorLabel.setText("Failed to load categories");
         }
     }
+
+    @FXML
+    private void onLogout() {
+        Session.setCurrentUserId(null);
+        Session.setCurrentUserRole(null);
+        Session.setCurrentUserName(null);
+        ViewNavigator.navigate("/fxml/login.fxml", "Localink - Login");
+    }
 }
+

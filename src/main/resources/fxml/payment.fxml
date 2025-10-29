@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.localink.controller.PaymentController">
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="toolbar">
+            <Label text="Localink" styleClass="title" />
+            <Label text="Payment" styleClass="subtitle" />
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="12" alignment="CENTER_LEFT">
+            <Label fx:id="serviceTitle" styleClass="title" />
+            <Label fx:id="amountLabel" />
+            <Label fx:id="scheduleLabel" />
+            <HBox spacing="8">
+                <Label text="Card Number" />
+                <TextField fx:id="cardNumber" promptText="1234 5678 9012 3456" />
+            </HBox>
+            <HBox spacing="8">
+                <Label text="Expiry" />
+                <TextField fx:id="expiry" promptText="MM/YY" />
+                <Label text="CVV" />
+                <PasswordField fx:id="cvv" promptText="***" />
+            </HBox>
+            <Label fx:id="errorLabel" style="-fx-text-fill: red;" />
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20" />
+            </padding>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox spacing="12" alignment="CENTER_RIGHT">
+            <Button text="Back" onAction="#onBack" />
+            <Button text="Pay Now" styleClass="primary" onAction="#onPay" />
+            <padding>
+                <Insets top="12" right="12" bottom="12" left="12" />
+            </padding>
+        </HBox>
+    </bottom>
+</BorderPane>
+

@@ -7,10 +7,18 @@
         <HBox spacing="12" alignment="CENTER_LEFT" styleClass="toolbar">
             <Label text="Localink" styleClass="title" />
             <Label text="Browse Categories" styleClass="subtitle" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Logout" onAction="#onLogout" />
         </HBox>
     </top>
     <center>
-        <ListView fx:id="categoryList" />
+        <AnchorPane>
+            <ListView fx:id="categoryList"
+                      AnchorPane.topAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0"
+                      AnchorPane.bottomAnchor="0.0"
+                      AnchorPane.leftAnchor="0.0" />
+        </AnchorPane>
     </center>
     <bottom>
         <Label fx:id="errorLabel" style="-fx-text-fill: red;" />
@@ -19,3 +27,4 @@
         <Insets top="12" right="12" bottom="12" left="12" />
     </padding>
 </BorderPane>
+

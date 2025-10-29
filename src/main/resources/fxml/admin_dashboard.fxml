@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.localink.controller.AdminDashboardController">
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="toolbar">
+            <Label text="Localink" styleClass="title" />
+            <Label text="Admin Dashboard" styleClass="subtitle" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Logout" onAction="#onLogout" />
+        </HBox>
+    </top>
+    <center>
+        <TabPane>
+            <tabs>
+                <Tab text="Users">
+                    <BorderPane>
+                        <center>
+                            <TableView fx:id="usersTable">
+                                <columns>
+                                    <TableColumn fx:id="userColId" text="ID" prefWidth="80" />
+                                    <TableColumn fx:id="userColName" text="Name" prefWidth="180" />
+                                    <TableColumn fx:id="userColEmail" text="Email" prefWidth="240" />
+                                    <TableColumn fx:id="userColRole" text="Role" prefWidth="100" />
+                                    <TableColumn fx:id="userColCreated" text="Created" prefWidth="180" />
+                                </columns>
+                            </TableView>
+                        </center>
+                    </BorderPane>
+                </Tab>
+                <Tab text="Services">
+                    <BorderPane>
+                        <center>
+                            <TableView fx:id="servicesTable">
+                                <columns>
+                                    <TableColumn fx:id="svcColId" text="ID" prefWidth="80" />
+                                    <TableColumn fx:id="svcColTitle" text="Title" prefWidth="220" />
+                                    <TableColumn fx:id="svcColCategory" text="Category" prefWidth="140" />
+                                    <TableColumn fx:id="svcColProvider" text="Provider" prefWidth="180" />
+                                    <TableColumn fx:id="svcColRate" text="Rate" prefWidth="100" />
+                                    <TableColumn fx:id="svcColActive" text="Active" prefWidth="80" />
+                                </columns>
+                            </TableView>
+                        </center>
+                    </BorderPane>
+                </Tab>
+                <Tab text="Bookings">
+                    <BorderPane>
+                        <center>
+                            <TableView fx:id="bookingsTable">
+                                <columns>
+                                    <TableColumn fx:id="bkColId" text="ID" prefWidth="80" />
+                                    <TableColumn fx:id="bkColCustomer" text="Customer ID" prefWidth="120" />
+                                    <TableColumn fx:id="bkColService" text="Service ID" prefWidth="120" />
+                                    <TableColumn fx:id="bkColStatus" text="Status" prefWidth="120" />
+                                    <TableColumn fx:id="bkColWhen" text="Scheduled" prefWidth="200" />
+                                </columns>
+                            </TableView>
+                        </center>
+                    </BorderPane>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>
+
