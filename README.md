@@ -31,14 +31,14 @@ psql -U postgres -c "CREATE DATABASE localink;"
 
 2) Apply schema + seed data using the full path to this project (adjust path if different):
 ```powershell
-psql -U postgres -d localink -f "C:\Users\SUBASH\OneDrive\Attachments\Desktop\desktop projects\java - dbms project\db\schema.sql"
+psql -U postgres -d localink -f "C:\'path_to_your_project_directory'\db\schema.sql"
 ```
 
 3) Configure DB credentials in `src/main/resources/application.properties`:
 ```
 db.url=jdbc:postgresql://localhost:5432/localink
-db.username=postgres
-db.password=postgres
+db.username="Your DB username"
+db.password="Your DB password"
 ```
 
 4) Run the app
